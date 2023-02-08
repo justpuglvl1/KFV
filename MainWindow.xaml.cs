@@ -164,6 +164,13 @@ namespace KFV
             #endregion
         }
 
+        private void AllBorders(Worksheet worksheet)
+        {
+            Microsoft.Office.Interop.Excel.Range tRange = worksheet.UsedRange;
+            tRange.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+            tRange.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+        }
+
         /// <summary>
         /// Запись в Excel
         /// </summary>
@@ -176,6 +183,7 @@ namespace KFV
                 Excel.Application app = new Excel.Application();
                 Workbook workbook = app.Workbooks.Add(System.Reflection.Missing.Value);
                 Worksheet worksheet = (Worksheet)workbook.Worksheets.get_Item(1);
+                AllBorders(worksheet);
 
                 int i = 2;
 
