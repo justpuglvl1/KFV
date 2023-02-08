@@ -76,15 +76,33 @@ namespace KFV
         /// <param name="i">Строка</param>
         /// <param name="g">Номер ХПТ</param>
         /// <param name="a">Колонка</param>
-        public decimal Prokat1(ObservableCollection<Prop> prop, Worksheet worksheet, int i, string g, int a)
+        public decimal Prokat1(ObservableCollection<Prop> prop, Worksheet worksheet, int i, string g)
         {
             var avg55 = from xp in prop
                         where xp.SelectedString3 == g
-                        select xp.V1;
+                        select xp.Metri1;
+
+            var avg551 = from xp in prop
+                        where xp.SelectedString4 == g
+                        select xp.Metri2;
+
+            var avg552 = from xp in prop
+                         where xp.SelectedString5 == g
+                         select xp.Metri3;
 
             decimal avg5 = 0;
 
             foreach (var p in avg55)
+            {
+                avg5 += Convert.ToDecimal(p);
+            }
+
+            foreach (var p in avg551)
+            {
+                avg5 += Convert.ToDecimal(p);
+            }
+
+            foreach (var p in avg552)
             {
                 avg5 += Convert.ToDecimal(p);
             }

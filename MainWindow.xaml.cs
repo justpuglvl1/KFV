@@ -351,9 +351,9 @@ namespace KFV
         void ProkatSum1(ObservableCollection<Prop> prop, Worksheet worksheet, int i)
         {
             MainView mv = new MainView();
-            zagot55 = m4 / 100 * 50;
-            zagot75 = m4 / 100 * 20;
-            zagot90 = m4 / 100 * 30;
+            zagot55 = mv.Prokat1(prop,worksheet, i, "ХПТ 55");
+            zagot75 = mv.Prokat1(prop, worksheet, i, "ХПТ 75");
+            zagot90 = mv.Prokat1(prop, worksheet, i, "ХПТ 90");
 
             worksheet.Cells[i + 15, 2] = zagot55;
             worksheet.Cells[i + 16, 2] = zagot75;
