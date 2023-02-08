@@ -18,8 +18,8 @@ namespace KFV
         public ObservableCollection<Prop> prop = new ObservableCollection<Prop>();
 
         static string title = "Вид труб;Прокат в метрах;Размер з.;Размер г.;" +
-                              "Проходимость для производства;Метро проходов;Маршрут;Стан ХПТ готовый;Норма;Кол-во смен;Стан ХПТ для проката предготового размера;" +
-                              "Стан ХПТ для проката после УППТП;";
+                              "Проходимость для производства;Метро проходов;Маршрут;Стан ХПТ готовый;Норма;Кол-во смен;ХПТ 1 предфинал;" +
+                              "Метры 1 предфина;ХПТ 2 предфинал;Метры 2 предфина;ХПТ 3 предфинал;Метры 3 предфина;";
 
         static string foglio = "qwa.xls";
 
@@ -408,7 +408,11 @@ namespace KFV
                 worksheet.Cells[i, 9] = p.SelectedString2;
                 worksheet.Cells[i, 10] = p.V6;
                 worksheet.Cells[i, 11] = p.SelectedString3;
-                worksheet.Cells[i, 12] = p.SelectedString4;
+                worksheet.Cells[i, 12] = p.Metri1;
+                worksheet.Cells[i, 13] = p.SelectedString4;
+                worksheet.Cells[i, 14] = p.Metri2;
+                worksheet.Cells[i, 15] = p.SelectedString5;
+                worksheet.Cells[i, 16] = p.Metri3;
                 i++;
                 n = i;
             }
@@ -421,7 +425,7 @@ namespace KFV
         void Fg(Worksheet worksheet)
         {
             string[] b = title.Split(';');
-            for (int i = 1; i <= 13; i++)
+            for (int i = 1; i <= 16; i++)
             {
                 worksheet.Cells[1, i] = b[i - 1];
                 worksheet.Cells[1, i].Font.Bold = true;
@@ -525,7 +529,6 @@ namespace KFV
             Workbook workbook = xlsxApp.Workbooks.Open(foglio);
             xlsxApp.Visible = true;
         }
-
 
         #region OpenFileDialoge
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)

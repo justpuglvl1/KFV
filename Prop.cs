@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
 
 namespace KFV
 {
@@ -45,7 +43,7 @@ namespace KFV
         public float dubl;
         public int a;
 
-        public float Metri1 
+        public float Metri1
         {
             get { return pm1; }
             set { pm1 = value; }
@@ -129,7 +127,7 @@ namespace KFV
             }
         }
 
-        private ObservableCollection<string> _testList = new ObservableCollection<string> { "КОТ", "ОН гот", 
+        private ObservableCollection<string> _testList = new ObservableCollection<string> { "КОТ", "ОН гот",
                                                                                             "ОН заг", "ОТ гот",
                                                                                             "ОТ заг","ЭХП гот", "ЭХП заг", "ОТ заг", "БР заг", "БР гот" };
         public ObservableCollection<string> TestList
@@ -177,7 +175,7 @@ namespace KFV
             }
         }
 
-        private ObservableCollection<string> _testList3 = new ObservableCollection<string> { "ХПТ 32", "ХПТ 55", "ХПТ 55-2", "ХПТ 75", "ХПТ 90" };
+        private ObservableCollection<string> _testList3 = new ObservableCollection<string> { "ХПТ 55", "ХПТ 75", "ХПТ 90" };
         public ObservableCollection<string> TestList3
         {
             get
@@ -198,7 +196,7 @@ namespace KFV
                 _ss3 = value;
             }
         }
-        private ObservableCollection<string> _testList4 = new ObservableCollection<string> { "ХПТ 32", "ХПТ 55", "ХПТ 55-2", "ХПТ 75", "ХПТ 90" };
+        private ObservableCollection<string> _testList4 = new ObservableCollection<string> {  "ХПТ 55", "ХПТ 75", "ХПТ 90" };
         public ObservableCollection<string> TestList4
         {
             get
@@ -220,7 +218,7 @@ namespace KFV
             }
         }
 
-        private ObservableCollection<string> _testList5 = new ObservableCollection<string> { "ХПТ 32", "ХПТ 55", "ХПТ 55-2", "ХПТ 75", "ХПТ 90" };
+        private ObservableCollection<string> _testList5 = new ObservableCollection<string> {"ХПТ 55", "ХПТ 75", "ХПТ 90" };
         public ObservableCollection<string> TestList5
         {
             get
@@ -270,7 +268,7 @@ namespace KFV
         {
             float f = pasability;
             float n = f * a;
-            return n;   
+            return n;
         }
 
         /// <summary> ++++++++++++
