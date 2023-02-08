@@ -103,7 +103,7 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Binding="{Binding Metri3,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" Header="Метры 1 предфинал"/>
+                    <DataGridTextColumn Binding="{Binding Metri3,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" Header="Метры 1"/>
 
                     <DataGridTemplateColumn Header="2 передел" Width="120">
                         <DataGridTemplateColumn.CellTemplate>
@@ -114,7 +114,7 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Binding="{Binding Metri2,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" Header="Метры 2 предфинал"/>
+                    <DataGridTextColumn Binding="{Binding Metri2,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" Header="Метры 2"/>
 
                     <DataGridTemplateColumn Header="3 передел" Width="120">
                         <DataGridTemplateColumn.CellTemplate>
@@ -125,7 +125,7 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Binding="{Binding Metri1,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*" Header="Метры 3 предфинал"/>
+                    <DataGridTextColumn Binding="{Binding Metri1,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*" Header="Метры 3"/>
                 </DataGrid.Columns>
 
             </DataGrid>

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
 namespace KFV
 {
@@ -311,8 +312,8 @@ namespace KFV
         public float Meybe(float marsh1, float stenk1, float marsh2, float stenk2)
         {
             Big2(marsh2, stenk2, marsh1, stenk1);
-            pm1 = 1000 / pr2;
-            return pasability = (pm1 + 1000) / 1000;
+            pm1 = (float)Convert.ToDouble(seven.Text) / pr2;
+            return pasability = (pm1 + (float)Convert.ToDouble(seven.Text)) / (float)Convert.ToDouble(seven.Text);
         }
 
         /// <summary> +++++++++
