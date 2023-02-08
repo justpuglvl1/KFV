@@ -1,0 +1,143 @@
+﻿using Microsoft.Office.Interop.Excel;
+using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+
+namespace KFV
+{
+    public class MainView
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="prop">Коллекция</param>
+        /// <param name="worksheet"></param>
+        /// <param name="i">Строка</param>
+        /// <param name="g">Номер ХПТ</param>
+        /// <param name="a">Колонка</param>
+        public decimal AvgNORMA(ObservableCollection<Prop> prop, Worksheet worksheet, int i, string g, int a)
+        {
+            int z = 1;
+            var avg55 = from xp in prop
+                        where xp.SelectedString1 == g
+                        select xp.SelectedString2;
+
+            decimal avg5 = 0;
+
+            foreach (var p in avg55)
+            {
+                avg5 += Convert.ToDecimal(p);
+                z++;
+            }
+
+            z -= 1;
+
+            if (z != 0)
+            {
+                worksheet.Cells[i, a] = avg5 / z;
+
+                return avg5 / z;
+            }
+            else
+                return avg5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="prop">Коллекция</param>
+        /// <param name="worksheet"></param>
+        /// <param name="i">Строка</param>
+        /// <param name="g">Номер ХПТ</param>
+        /// <param name="a">Колонка</param>
+        public decimal Prokat(ObservableCollection<Prop> prop, Worksheet worksheet, int i, string g, int a)
+        {
+            var avg55 = from xp in prop
+                        where xp.SelectedString1 == g
+                        select xp.V2;
+
+            decimal avg5 = 0;
+
+            foreach (var p in avg55)
+            {
+                avg5 += Convert.ToDecimal(p);
+            }
+
+            worksheet.Cells[i, a] = avg5;
+
+            return avg5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="prop">Коллекция</param>
+        /// <param name="worksheet"></param>
+        /// <param name="i">Строка</param>
+        /// <param name="g">Номер ХПТ</param>
+        /// <param name="a">Колонка</param>
+        public decimal Prokat1(ObservableCollection<Prop> prop, Worksheet worksheet, int i, string g, int a)
+        {
+            var avg55 = from xp in prop
+                        where xp.SelectedString3 == g
+                        select xp.V1;
+
+            decimal avg5 = 0;
+
+            foreach (var p in avg55)
+            {
+                avg5 += Convert.ToDecimal(p);
+            }
+
+            return avg5;
+        }
+
+        public decimal Avg(ObservableCollection<Prop> prop, Worksheet worksheet, int i, int a)
+        {
+            var avg55 = from xp in prop
+                        select Convert.ToDecimal(xp.V2) / Convert.ToDecimal(xp.SelectedString2);
+
+            decimal avg5 = 0;
+
+            foreach(var p in avg55)
+            {
+                avg5 += Convert.ToDecimal(p);
+            }
+
+            for(int h = 0; h< prop.Count; h++)
+            {
+                worksheet.Cells[h+2, 10] = Convert.ToDecimal(prop[h].V2) / Convert.ToDecimal(prop[h].SelectedString2);
+            }
+
+            return avg5;
+        }
+
+        public decimal Afg1(ObservableCollection<Prop> prop)
+        {
+            var avg = from xp in prop
+                      select xp.V2;
+
+            decimal a = 0;
+            foreach(var b in avg)
+            {
+                a += Convert.ToDecimal(b);
+            }
+
+            return a;
+        }
+
+        public decimal Afg2(ObservableCollection<Prop> prop)
+        {
+            var avg = from xp in prop
+                      select xp.V1;
+
+            decimal a = 0;
+            foreach (var b in avg)
+            {
+                a += Convert.ToDecimal(b);
+            }
+
+            return a;
+        }
+    }
+}
