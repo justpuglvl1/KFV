@@ -30,20 +30,36 @@ namespace KFV
         public float stenk4;
         public float stenk5;
 
-        private float pr1;           //прогон 1
-        private float pr2;           //прогон 2
-        private float pr3;           //прогон 3
-        private float pr4;           //прогон 3
-        private float pr5;           //прогон 3
+        public float pr1;           //прогон 1
+        public float pr2;           //прогон 2
+        public float pr3;           //прогон 3
+        public float pr4;           //прогон 3
+        public float pr5;           //прогон 3
 
-        public float pm1;            //Прогонный метр 1
-        public float pm2;            //Прогонный метр 2
-        public float pm3;            //Прогонный метр 3
-        public float pm4;            //Прогонный метр 3
-        public float pm5;            //Прогонный метр 3
+        private float pm1;            //Прогонный метр 1
+        private float pm2;            //Прогонный метр 2
+        private float pm3;            //Прогонный метр 3
+        private float pm4;            //Прогонный метр 3
+        private float pm5;            //Прогонный метр 3
 
         public float dubl;
         public int a;
+
+        public float Metri1 
+        {
+            get { return pm1; }
+            set { pm1 = value; }
+        }
+        public float Metri2
+        {
+            get { return pm2; }
+            set { pm2 = value; }
+        }
+        public float Metri3
+        {
+            get { return pm3; }
+            set { pm3 = value; }
+        }
 
         public float Marsh1 { get; set; }
         public float Marsh2 { get; set; }
@@ -201,6 +217,28 @@ namespace KFV
             set
             {
                 _ss4 = value;
+            }
+        }
+
+        private ObservableCollection<string> _testList5 = new ObservableCollection<string> { "ХПТ 32", "ХПТ 55", "ХПТ 55-2", "ХПТ 75", "ХПТ 90" };
+        public ObservableCollection<string> TestList5
+        {
+            get
+            {
+                return _testList5;
+            }
+        }
+
+        private string _ss5;
+        public string SelectedString5
+        {
+            get
+            {
+                return _ss5;
+            }
+            set
+            {
+                _ss5 = value;
             }
         }
         #endregion
@@ -421,7 +459,6 @@ namespace KFV
         {
             return pasability = 1;
         }
-
 
         #endregion
     }
