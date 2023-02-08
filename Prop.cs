@@ -44,21 +44,9 @@ namespace KFV
         public float dubl;
         public int a;
 
-        public float Metri1
-        {
-            get { return pm1; }
-            set { pm1 = value; }
-        }
-        public float Metri2
-        {
-            get { return pm2; }
-            set { pm2 = value; }
-        }
-        public float Metri3
-        {
-            get { return pm3; }
-            set { pm3 = value; }
-        }
+        public float Metri1 { get; set; }
+        public float Metri2 { get; set; }
+        public float Metri3 { get; set; }
 
         public float Marsh1 { get; set; }
         public float Marsh2 { get; set; }
@@ -287,7 +275,7 @@ namespace KFV
             Dia = d1;
             Diam = d2;
             Stenk = s2;
-            Pas = Meybe(d2, s2, marsh1, stenk1);
+            Pas = Meybe(d2, s2, marsh1, stenk1,m);
             V1 = GetChill(m);
             V2 = "";
             V3 = "";
@@ -299,6 +287,7 @@ namespace KFV
             SelectedString1 = "";
             SelectedString3 = "";
             SelectedString4 = "";
+            Metri1 = pm1 = m / pr2;
         }
 
         /// <summary> ++++++++++
@@ -309,11 +298,11 @@ namespace KFV
         /// <param name="marsh2">45</param>
         /// <param name="stenk2">4,1</param>
         /// <returns></returns>
-        public float Meybe(float marsh1, float stenk1, float marsh2, float stenk2)
+        public float Meybe(float marsh1, float stenk1, float marsh2, float stenk2, float m)
         {
             Big2(marsh2, stenk2, marsh1, stenk1);
-            pm1 = (float)Convert.ToDouble(seven.Text) / pr2;
-            return pasability = (pm1 + (float)Convert.ToDouble(seven.Text)) / (float)Convert.ToDouble(seven.Text);
+            pm1 = 1000 / pr2;
+            return pasability = (pm1 + 1000) / 1000;
         }
 
         /// <summary> +++++++++
@@ -334,7 +323,7 @@ namespace KFV
             Sten = s1;
             Diam = d2;
             Stenk = s2;
-            Pas = Meybe(marsh1, stenk1, marsh2, stenk2, d2, s2);
+            Pas = Meybe(marsh1, stenk1, marsh2, stenk2, d2, s2,m);
             V1 = GetChill(m);
             V2 = "";
             V3 = "";
@@ -346,6 +335,8 @@ namespace KFV
             SelectedString1 = "";
             SelectedString3 = "";
             SelectedString4 = "";
+            Metri1 = pm1 = m / pr2;
+            Metri2 = pm2 = pm1 / pr3;
         }
 
         /// <summary> ++++++++++++++++++++
@@ -359,7 +350,7 @@ namespace KFV
         /// <param name="stenk3">1</param>
         /// <returns></returns>
         public float Meybe(float marsh1, float stenk1, float marsh2, float stenk2,
-                           float marsh3, float stenk3)
+                           float marsh3, float stenk3, float m)
         {
             Big2(marsh2, stenk2, marsh3, stenk3);
             Big3(marsh1, stenk1, marsh2, stenk2);
@@ -389,7 +380,7 @@ namespace KFV
             Sten = s1;
             Diam = d2;
             Stenk = s2;
-            Pas = Meybe(d2, s2, marsh3, stenk3, marsh2, stenk2, marsh1, stenk1);
+            Pas = Meybe(d2, s2, marsh3, stenk3, marsh2, stenk2, marsh1, stenk1,m);
             V1 = GetChill(m);
             V2 = "";
             V3 = "";
@@ -401,6 +392,9 @@ namespace KFV
             SelectedString1 = "";
             SelectedString3 = "";
             SelectedString4 = "";
+            Metri1 = pm1 = m / pr2;
+            Metri2 = pm2 = pm1 / pr3;
+            Metri3 = pm3 = pm2 / pr4;
         }
 
         /// <summary> +++++++++++++++
@@ -416,7 +410,7 @@ namespace KFV
         /// <param name="stenk4">11</param>
         /// <returns></returns>
         public float Meybe(float marsh1, float stenk1, float marsh2, float stenk2,
-                           float marsh3, float stenk3, float marsh4, float stenk4)
+                           float marsh3, float stenk3, float marsh4, float stenk4, float m)
         {
             Big2(marsh2, stenk2, marsh1, stenk1);
             Big3(marsh3, stenk3, marsh2, stenk2);

@@ -103,9 +103,20 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Binding="{Binding Metri3,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" Header="Метры 1"/>
-
+                    <DataGridTextColumn Binding="{Binding Metri3,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" Header="Метры 1 передел"/>
+                    
                     <DataGridTemplateColumn Header="2 передел" Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox FontSize="13" ItemsSource="{Binding TestList3}" SelectedItem="{Binding Path=SelectedString3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                </ComboBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Binding="{Binding Metri3,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" Header="Метры 2 передел"/>
+
+                    <DataGridTemplateColumn Header="3 передел" Width="120">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <ComboBox FontSize="13" ItemsSource="{Binding TestList4}" SelectedItem="{Binding Path=SelectedString4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
@@ -114,9 +125,9 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Binding="{Binding Metri2,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" Header="Метры 2"/>
+                    <DataGridTextColumn Binding="{Binding Metri2,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" Header="Метры 3 передел"/>
 
-                    <DataGridTemplateColumn Header="3 передел" Width="120">
+                    <DataGridTemplateColumn Header="4 передел" Width="120">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <ComboBox FontSize="13" ItemsSource="{Binding TestList5}" SelectedItem="{Binding Path=SelectedString5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
@@ -125,7 +136,7 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Binding="{Binding Metri1,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*" Header="Метры 3"/>
+                    <DataGridTextColumn Binding="{Binding Metri1,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*" Header="Метры 4 передел"/>
                 </DataGrid.Columns>
 
             </DataGrid>

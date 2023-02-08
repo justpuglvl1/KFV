@@ -80,7 +80,7 @@ namespace KFV
         {
             var avg55 = from xp in prop
                         where xp.SelectedString3 == g
-                        select xp.Metri1;
+                        select xp.Metri3;
 
             var avg551 = from xp in prop
                         where xp.SelectedString4 == g
@@ -88,7 +88,7 @@ namespace KFV
 
             var avg552 = from xp in prop
                          where xp.SelectedString5 == g
-                         select xp.Metri3;
+                         select xp.Metri1;
 
             decimal avg5 = 0;
 

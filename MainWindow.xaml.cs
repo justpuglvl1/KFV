@@ -416,11 +416,11 @@ namespace KFV
                 worksheet.Cells[i, 9] = p.SelectedString2;
                 worksheet.Cells[i, 10] = p.V6;
                 worksheet.Cells[i, 11] = p.SelectedString3;
-                worksheet.Cells[i, 12] = p.Metri1;
+                worksheet.Cells[i, 12] = p.Metri3;
                 worksheet.Cells[i, 13] = p.SelectedString4;
                 worksheet.Cells[i, 14] = p.Metri2;
                 worksheet.Cells[i, 15] = p.SelectedString5;
-                worksheet.Cells[i, 16] = p.Metri3;
+                worksheet.Cells[i, 16] = p.Metri1;
                 i++;
                 n = i;
             }
@@ -517,6 +517,7 @@ namespace KFV
             {
                 MessageBox.Show("Ошибка данных");
             }
+            
             five.Clear();
             six.Clear();
             seven.Clear();
