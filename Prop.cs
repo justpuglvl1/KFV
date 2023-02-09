@@ -47,6 +47,7 @@ namespace KFV
         public float Metri1 { get; set; }
         public float Metri2 { get; set; }
         public float Metri3 { get; set; }
+        public float Metri4 { get; set; }
 
         public float Marsh1 { get; set; }
         public float Marsh2 { get; set; }
@@ -228,6 +229,27 @@ namespace KFV
                 _ss5 = value;
             }
         }
+        private ObservableCollection<string> _testList6 = new ObservableCollection<string> { "ХПТ 55", "ХПТ 75", "ХПТ 90" };
+        public ObservableCollection<string> TestList6
+        {
+            get
+            {
+                return _testList6;
+            }
+        }
+
+        private string _ss6;
+        public string SelectedString6
+        {
+            get
+            {
+                return _ss6;
+            }
+            set
+            {
+                _ss6 = value;
+            }
+        }
         #endregion
 
         #region Перегрузки конструкторов
@@ -287,7 +309,7 @@ namespace KFV
             SelectedString1 = "";
             SelectedString3 = "";
             SelectedString4 = "";
-            Metri1 = pm1 = m / pr2;
+            Metri1 = m / pr2;
         }
 
         /// <summary> ++++++++++
@@ -323,7 +345,7 @@ namespace KFV
             Sten = s1;
             Diam = d2;
             Stenk = s2;
-            Pas = Meybe(marsh1, stenk1, marsh2, stenk2, d2, s2,m);
+            Pas = Meybe(d2, s2, marsh1, stenk1, marsh2, stenk2, m);
             V1 = GetChill(m);
             V2 = "";
             V3 = "";
@@ -335,8 +357,8 @@ namespace KFV
             SelectedString1 = "";
             SelectedString3 = "";
             SelectedString4 = "";
-            Metri1 = pm1 = m / pr2;
-            Metri2 = pm2 = pm1 / pr3;
+            Metri1 = m / pr2;
+            Metri2 = Metri1 / pr3;
         }
 
         /// <summary> ++++++++++++++++++++
@@ -352,8 +374,8 @@ namespace KFV
         public float Meybe(float marsh1, float stenk1, float marsh2, float stenk2,
                            float marsh3, float stenk3, float m)
         {
-            Big2(marsh2, stenk2, marsh3, stenk3);
-            Big3(marsh1, stenk1, marsh2, stenk2);
+            Big2(marsh2, stenk2, marsh1, stenk1);
+            Big3(marsh3, stenk3, marsh2, stenk2);
             pm1 = 1000 / pr2;
             pm2 = pm1 / pr3;
             return pasability = (pm1 + pm2 + 1000) / 1000;
@@ -392,9 +414,9 @@ namespace KFV
             SelectedString1 = "";
             SelectedString3 = "";
             SelectedString4 = "";
-            Metri1 = pm1 = m / pr2;
-            Metri2 = pm2 = pm1 / pr3;
-            Metri3 = pm3 = pm2 / pr4;
+            Metri1 = m / pr2;
+            Metri2 = Metri1 / pr3;
+            Metri3 = Metri2 / pr4;
         }
 
         /// <summary> +++++++++++++++
@@ -414,11 +436,75 @@ namespace KFV
         {
             Big2(marsh2, stenk2, marsh1, stenk1);
             Big3(marsh3, stenk3, marsh2, stenk2);
-            Big4(marsh4, stenk4, stenk3, stenk2);
+            Big4(marsh4, stenk4, marsh3, stenk3);
             pm1 = 1000 / pr2;
             pm2 = pm1 / pr3;
             pm3 = pm2 / pr4;
             return pasability = (pm1 + pm2 + pm3 + 1000) / 1000;
+        }
+
+        /// <summary> ++++++++++++
+        /// 
+        /// </summary>
+        /// <param name="d1">140</param>
+        /// <param name="s1">15</param>
+        /// <param name="d2">20</param>
+        /// <param name="s2">2</param>
+        /// <param name="marsh1">102</param>
+        /// <param name="stenk1">11</param>
+        /// <param name="marsh2">76</param>
+        /// <param name="stenk2">8.1</param>
+        /// <param name="marsh3">45</param>
+        /// <param name="stenk3">4.1</param>
+        public Prop(float d1, float s1, float d2, float s2, float marsh1, float stenk1,
+            float marsh2, float stenk2, float marsh3, float stenk3, float marsh4, float stenk4, float m)
+        {
+            Dia = d1;
+            Sten = s1;
+            Diam = d2;
+            Stenk = s2;
+            Pas = Meybe(d2, s2, marsh4, stenk4, marsh3, stenk3, marsh2, stenk2, marsh1, stenk1, m);
+            V1 = GetChill(m);
+            V2 = "";
+            V3 = "";
+            V4 = $"{d1}x{s1}";
+            V5 = $"{d2}x{s2}";
+            V6 = "";
+            SelectedString2 = "";
+            SelectedString = "";
+            SelectedString1 = "";
+            SelectedString3 = "";
+            SelectedString4 = "";
+            Metri1 = m / pr2;
+            Metri2 = Metri1 / pr3;
+            Metri3 = Metri2 / pr4;
+            Metri4 = Metri3 / pr5;
+        }
+
+        /// <summary> +++++++++++++++
+        /// 
+        /// </summary>
+        /// <param name="marsh1">20</param>
+        /// <param name="stenk1">2</param>
+        /// <param name="marsh2">45</param>
+        /// <param name="stenk2">4.1</param>
+        /// <param name="marsh3">75</param>
+        /// <param name="stenk3">8,1</param>
+        /// <param name="marsh4">102</param>
+        /// <param name="stenk4">11</param>
+        /// <returns></returns>
+        public float Meybe(float marsh1, float stenk1, float marsh2, float stenk2,
+                           float marsh3, float stenk3, float marsh4, float stenk4, float marsh5, float stenk5, float m)
+        {
+            Big2(marsh2, stenk2, marsh1, stenk1);
+            Big3(marsh3, stenk3, marsh2, stenk2);
+            Big4(marsh4, stenk4, marsh3, stenk3);
+            Big5(marsh5, stenk5, marsh4, stenk4);
+            pm1 = 1000 / pr2;
+            pm2 = pm1 / pr3;
+            pm3 = pm2 / pr4;
+            pm4 = pm3 / pr5;
+            return pasability = (pm1 + pm2 + pm3+ pm4 + 1000) / 1000;
         }
 
         public float Big1(float d1, float s1, float d2, float s2)

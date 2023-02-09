@@ -453,8 +453,8 @@ namespace KFV
                 string[] n = six.Text.Split(' ');
 
                 float m = (float)Convert.ToDouble(seven.Text);
-                float s1, stanka2, s2, stanka4, stanka3;
-                float d1, marsh2, d2, marsh4, marsh3;
+                float s1, stanka2, s2, stanka4, stanka3, stanka5;
+                float d1, marsh2, d2, marsh4, marsh3, marsh5;
 
                 if (b.Length == 2 && n.Length == 2)
                 {
@@ -507,6 +507,24 @@ namespace KFV
                     s2 = (float)Convert.ToDouble(n[4]);
 
                     prop.Add(new Prop(d1, s1, d2, s2, marsh2, stanka2, marsh3, stanka3, marsh4, stanka4, m) { V3 = $"{b[0]}x{n[0]}|{b[1]}x{n[1]}|{b[2]}x{n[2]}|{b[3]}x{n[3]}|{b[4]}x{n[4]}", V2 = seven.Text });
+                }
+                else if (b.Length == 6 && n.Length == 6)
+                {
+                    d1 = (float)Convert.ToDouble(b[0]);
+                    marsh2 = (float)Convert.ToDouble(b[1]);
+                    marsh3 = (float)Convert.ToDouble(b[2]);
+                    marsh4 = (float)Convert.ToDouble(b[3]);
+                    marsh5 = (float)Convert.ToDouble(b[4]);
+                    d2 = (float)Convert.ToDouble(b[5]);
+
+                    s1 = (float)Convert.ToDouble(n[0]);
+                    stanka2 = (float)Convert.ToDouble(n[1]);
+                    stanka3 = (float)Convert.ToDouble(n[2]);
+                    stanka4 = (float)Convert.ToDouble(n[3]);
+                    stanka5 = (float)Convert.ToDouble(n[4]);
+                    s2 = (float)Convert.ToDouble(n[5]);
+
+                    prop.Add(new Prop(d1, s1, d2, s2, marsh2, stanka2, marsh3, stanka3, marsh4, stanka4, marsh5, stanka5, m) { V3 = $"{b[0]}x{n[0]}|{b[1]}x{n[1]}|{b[2]}x{n[2]}|{b[3]}x{n[3]}|{b[4]}x{n[4]}|{b[5]}x{n[5]}", V2 = seven.Text });
                 }
                 else
                 {

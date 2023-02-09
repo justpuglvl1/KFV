@@ -90,6 +90,10 @@ namespace KFV
                          where xp.SelectedString5 == g
                          select xp.Metri1;
 
+            var avg553 = from xp in prop
+                         where xp.SelectedString6 == g
+                         select xp.Metri4;
+
             decimal avg5 = 0;
 
             foreach (var p in avg55)
@@ -103,6 +107,11 @@ namespace KFV
             }
 
             foreach (var p in avg552)
+            {
+                avg5 += Convert.ToDecimal(p);
+            }
+
+            foreach (var p in avg553)
             {
                 avg5 += Convert.ToDecimal(p);
             }
