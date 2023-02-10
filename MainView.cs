@@ -35,6 +35,7 @@ namespace KFV
             if (z != 0)
             {
                 worksheet.Cells[i, a] = avg5 / z;
+                worksheet.Cells[i, a].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
 
                 return avg5 / z;
             }
@@ -64,6 +65,7 @@ namespace KFV
             }
 
             worksheet.Cells[i, a] = avg5;
+            worksheet.Cells[i, a].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
 
             return avg5;
         }
@@ -134,6 +136,7 @@ namespace KFV
             for(int h = 0; h< prop.Count; h++)
             {
                 worksheet.Cells[h+2, 10] = Convert.ToDecimal(prop[h].V2) / Convert.ToDecimal(prop[h].SelectedString2);
+                worksheet.Cells[h+2, 10].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             }
 
             return avg5;

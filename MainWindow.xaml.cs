@@ -94,76 +94,106 @@ namespace KFV
             #region Таблицы
             worksheet.Cells[i + 2, 5] = $"Метропроходы в сут. по вкл. {datePicker.SelectedDate.Value.ToString("dd.MM")}";
             worksheet.Cells[i + 2, 5].Font.Bold = true;
+            worksheet.Cells[i + 2, 5].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 3, 5] = $"Метропроходы заготовки по вкл. {datePicker.SelectedDate.Value.ToString("dd.MM")}";
             worksheet.Cells[i + 3, 5].Font.Bold = true;
+            worksheet.Cells[i + 3, 5].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 4, 5] = "Итого норм для проката заготовки";
             worksheet.Cells[i + 4, 5].Font.Bold = true;
+            worksheet.Cells[i + 4, 5].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 5, 5] = $"Итого норм загот./сут для проката заготовки до вкл {datePicker.SelectedDate.Value.ToString("dd.MM")}";
             worksheet.Cells[i + 5, 5].Font.Bold = true;
+            worksheet.Cells[i + 5, 5].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
 
             worksheet.Cells[i + 2, 7] = $"Итого норм для проката готового размера";
             worksheet.Cells[i + 2, 7].Font.Bold = true;
+            worksheet.Cells[i + 2, 7].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 3, 7] = $"Итого норм готовых/сут до вкл {datePicker.SelectedDate.Value.ToString("dd.MM")}";
             worksheet.Cells[i + 3, 7].Font.Bold = true;
+            worksheet.Cells[i + 3, 7].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 4, 7] = $"Итого кол-во норм/сут (заг.+гот) до вкл {datePicker.SelectedDate.Value.ToString("dd.MM")}";
             worksheet.Cells[i + 4, 7].Font.Bold = true;
+            worksheet.Cells[i + 4, 7].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
 
             worksheet.Cells[i + 7, 1] = "Тип";
             worksheet.Cells[i + 7, 1].Font.Bold = true;
+            worksheet.Cells[i + 7, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 8, 1] = "ХПТ 32";
             worksheet.Cells[i + 8, 1].Font.Bold = true;
+            worksheet.Cells[i + 8, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 9, 1] = "ХПТ 55";
             worksheet.Cells[i + 9, 1].Font.Bold = true;
+            worksheet.Cells[i + 9, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 10, 1] = "ХПТ 55-2";
             worksheet.Cells[i + 10, 1].Font.Bold = true;
+            worksheet.Cells[i + 10, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 11, 1] = "ХПТ 75";
             worksheet.Cells[i + 11, 1].Font.Bold = true;
+            worksheet.Cells[i + 11, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 12, 1] = "ХПТ 90";
             worksheet.Cells[i + 12, 1].Font.Bold = true;
+            worksheet.Cells[i + 12, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
 
 
             worksheet.Cells[i + 7, 2] = "Прокат готовых, м";
             worksheet.Cells[i + 7, 2].Font.Bold = true;
+            worksheet.Cells[i + 7, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 7, 3] = "Средняя норма, м";
             worksheet.Cells[i + 7, 3].Font.Bold = true;
+            worksheet.Cells[i + 7, 3].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 7, 4] = $"Необходимое количество станов в сутки до вкл {datePicker.SelectedDate.Value.ToString("dd.MM")}";
             worksheet.Cells[i + 7, 4].Font.Bold = true;
+            worksheet.Cells[i + 7, 4].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
 
 
             worksheet.Cells[i + 14, 1] = "Тип";
             worksheet.Cells[i + 14, 1].Font.Bold = true;
+            worksheet.Cells[i + 14, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 15, 1] = "ХПТ 55";
             worksheet.Cells[i + 15, 1].Font.Bold = true;
+            worksheet.Cells[i + 15, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 16, 1] = "ХПТ 75";
             worksheet.Cells[i + 16, 1].Font.Bold = true;
+            worksheet.Cells[i + 16, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 17, 1] = "ХПТ 90";
             worksheet.Cells[i + 17, 1].Font.Bold = true;
+            worksheet.Cells[i + 17, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
 
 
             worksheet.Cells[i + 14, 2] = "Прокат заготовки, м";
             worksheet.Cells[i + 14, 2].Font.Bold = true;
+            worksheet.Cells[i + 14, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 14, 3] = "Средняя норма, м";
             worksheet.Cells[i + 14, 3].Font.Bold = true;
+            worksheet.Cells[i + 14, 3].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 14, 4] = $"Необходимое количество станов в сутки до {datePicker.SelectedDate.Value.ToString("dd.MM")}";
             worksheet.Cells[i + 14, 4].Font.Bold = true;
+            worksheet.Cells[i + 14, 4].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
 
 
             worksheet.Cells[i + 20, 1] = "ХПТ 32";
             worksheet.Cells[i + 20, 1].Font.Bold = true;
+            worksheet.Cells[i + 20, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 21, 1] = "ХПТ 55";
             worksheet.Cells[i + 21, 1].Font.Bold = true;
+            worksheet.Cells[i + 21, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 22, 1] = "ХПТ 55-2";
             worksheet.Cells[i + 22, 1].Font.Bold = true;
+            worksheet.Cells[i + 22, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 23, 1] = "ХПТ 75";
             worksheet.Cells[i + 23, 1].Font.Bold = true;
+            worksheet.Cells[i + 23, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 24, 1] = "ХПТ 90";
             worksheet.Cells[i + 24, 1].Font.Bold = true;
+            worksheet.Cells[i + 24, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 19, 1] = "Тип";
             worksheet.Cells[i + 19, 1].Font.Bold = true;
+            worksheet.Cells[i + 19, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
 
 
             worksheet.Cells[i + 19, 2] = "Итого количество в сутки";
             worksheet.Cells[i + 19, 2].Font.Bold = true;
+            worksheet.Cells[i + 19, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             #endregion
         }
 
@@ -209,14 +239,25 @@ namespace KFV
 
 
                 worksheet.Cells[n + 20, 2] = stangot1 + zastangot1;
+                worksheet.Cells[n + 20, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[n + 21, 2] = stangot2 + zastangot2;
+                worksheet.Cells[n + 21, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[n + 22, 2] = stangot3 + zastangot3;
+                worksheet.Cells[n + 22, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[n + 23, 2] = stangot4 + zastangot4;
+                worksheet.Cells[n + 23, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[n + 24, 2] = stangot5 + zastangot5;
+                worksheet.Cells[n + 24, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
 
                 worksheet.Cells[n + 15, 3] = 700;
+                worksheet.Cells[n + 15, 3].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[n + 16, 3] = 700;
+                worksheet.Cells[n + 16, 3].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[n + 17, 3] = 700;
+                worksheet.Cells[n + 17, 3].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
+
+                //Excel.Range range1 = worksheet.get_Range(worksheet.Cells[1, 1], worksheet.Cells[n, 18]);
+                //RowColor(range1);
 
                 var a = System.Reflection.Missing.Value;
                 workbook.SaveAs(foglio);
@@ -252,7 +293,9 @@ namespace KFV
             MainView mv = new MainView();
             m1 = mv.Avg(prop, worksheet, i + 2, 8);
             worksheet.Cells[i + 2, 8] = m1;
+            worksheet.Cells[i + 2, 8].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 3, 8] = m1 / Date();
+            worksheet.Cells[i + 3, 8].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
         }
 
         void Avg2(ObservableCollection<Prop> prop, Worksheet worksheet, int i)
@@ -263,10 +306,15 @@ namespace KFV
             m4 = m2 - m3;
             decimal l = ((m2 - m3) / 800) / Date();
             worksheet.Cells[i + 2, 6] = m2 / Date();
+            worksheet.Cells[i + 2, 6].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 3, 6] = m4;
+            worksheet.Cells[i + 3, 6].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 4, 6] = (m2 - m3) / 800;
+            worksheet.Cells[i + 4, 6].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 5, 6] = ((m2 - m3) / 800) / Date();
+            worksheet.Cells[i + 5, 6].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 4, 8] = (m1 / Date()) + l;
+            worksheet.Cells[i + 4, 8].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
         }
 
         int Date()
@@ -315,26 +363,31 @@ namespace KFV
             try
             {
                 stangot1 = worksheet.Cells[i + 8, 4] = got32 / normaGot1 / Date();
+                worksheet.Cells[i + 8, 4].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             }
             catch { }
             try
             {
                 stangot2 = worksheet.Cells[i + 9, 4] = got55 / normaGot2 / Date();
+                worksheet.Cells[i + 9, 4].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             }
             catch { }
             try
             {
                 stangot3 = worksheet.Cells[i + 10, 4] = got55_2 / normaGot3 / Date();
+                worksheet.Cells[i + 10, 4].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             }
             catch { }
             try
             {
                 stangot4 = worksheet.Cells[i + 11, 4] = got75 / normaGot4 / Date();
+                worksheet.Cells[i + 11, 4].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             }
             catch { }
             try
             {
                 stangot5 = worksheet.Cells[i + 12, 4] = got90 / normaGot5 / Date();
+                worksheet.Cells[i + 12, 4].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             }
             catch { }
         }
@@ -368,8 +421,11 @@ namespace KFV
             zagot90 = mv.Prokat1(prop, worksheet, i, "ХПТ 90");
 
             worksheet.Cells[i + 15, 2] = zagot55;
+            worksheet.Cells[i + 15, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 16, 2] = zagot75;
+            worksheet.Cells[i + 16, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             worksheet.Cells[i + 17, 2] = zagot90;
+            worksheet.Cells[i + 17, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
         }
 
         /// <summary>
@@ -383,18 +439,21 @@ namespace KFV
             {
                 if (zagot55 != 0)
                     zastangot2 = worksheet.Cells[i + 15, 4] = zagot55 / 700 / Date();
+                worksheet.Cells[i + 15, 4].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             }
             catch { }
             try
             {
                 if (zagot75 != 0)
                     zastangot4 = worksheet.Cells[i + 16, 4] = zagot75 / 700 / Date();
+                worksheet.Cells[i + 16, 4].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             }
             catch { }
             try
             {
                 if (zagot90 != 0)
                     zastangot5 = worksheet.Cells[i + 17, 4] = zagot90 / 700 / Date();
+                worksheet.Cells[i + 17, 4].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             }
             catch { }
         }
@@ -410,23 +469,41 @@ namespace KFV
             foreach (Prop p in prop)
             {
                 worksheet.Cells[i, 1] = p.SelectedString;
+                worksheet.Cells[i, 1].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 2] = p.V2;
+                worksheet.Cells[i, 2].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 3] = p.V4;
+                worksheet.Cells[i, 3].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 4] = p.V5;
+                worksheet.Cells[i, 4].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 5] = p.Pas;
+                worksheet.Cells[i, 5].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 6] = p.V1;
+                worksheet.Cells[i, 6].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 7] = p.V3;
+                worksheet.Cells[i, 7].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 8] = p.SelectedString1;
+                worksheet.Cells[i, 8].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 9] = p.SelectedString2;
+                worksheet.Cells[i, 9].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 10] = p.V6;
+                worksheet.Cells[i, 10].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 11] = p.SelectedString6;
+                worksheet.Cells[i, 11].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 12] = p.Metri4;
+                worksheet.Cells[i, 12].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 13] = p.SelectedString3;
+                worksheet.Cells[i, 13].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 14] = p.Metri3;
+                worksheet.Cells[i, 14].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 15] = p.SelectedString4;
+                worksheet.Cells[i, 15].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 16] = p.Metri2;
+                worksheet.Cells[i, 16].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 17] = p.SelectedString5;
+                worksheet.Cells[i, 17].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 worksheet.Cells[i, 18] = p.Metri1;
+                worksheet.Cells[i, 18].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
                 i++;
                 n = i;
             }
@@ -443,6 +520,7 @@ namespace KFV
             {
                 worksheet.Cells[1, i] = b[i - 1];
                 worksheet.Cells[1, i].Font.Bold = true;
+                worksheet.Cells[1, i].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
             }
         }
 
