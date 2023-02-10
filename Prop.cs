@@ -253,7 +253,28 @@ namespace KFV
         #endregion
 
         #region Перегрузки конструкторов
-        public Prop() { }
+        public Prop() {
+            Dia = default;
+            Sten = default;
+            Diam = default;
+            Stenk = default;
+            Pas = default;
+            V1 = default;
+            V2 = default;
+            V3 = default;
+            V4 = default;
+            V5 = default;
+            V6 = default;
+            SelectedString2 = default;
+            SelectedString = default;
+            SelectedString1 = default;
+            SelectedString3 = default;
+            SelectedString4 = default;
+            Metri1 = default;
+            Metri2 = default;
+            Metri3 = default;
+            Metri4 = default;
+        }
 
         public Prop(float d1, float s1, float d2, float s2, float m)
         {
@@ -273,6 +294,10 @@ namespace KFV
             SelectedString1 = "";
             SelectedString3 = "";
             SelectedString4 = "";
+            Metri1 = default;
+            Metri2 = default;
+            Metri3 = default;
+            Metri4 = default;
         }
 
         public float GetChill(float a)
@@ -295,6 +320,7 @@ namespace KFV
             float marsh1, float stenk1, float m)
         {
             Dia = d1;
+            Sten = s1;
             Diam = d2;
             Stenk = s2;
             Pas = Meybe(d2, s2, marsh1, stenk1,m);
@@ -310,6 +336,9 @@ namespace KFV
             SelectedString3 = "";
             SelectedString4 = "";
             Metri1 = m / pr2;
+            Metri2 = default;
+            Metri3 = default;
+            Metri4 = default;
         }
 
         /// <summary> ++++++++++
@@ -359,6 +388,8 @@ namespace KFV
             SelectedString4 = "";
             Metri1 = m / pr2;
             Metri2 = Metri1 / pr3;
+            Metri3 = default;
+            Metri4 = default;
         }
 
         /// <summary> ++++++++++++++++++++
@@ -417,6 +448,7 @@ namespace KFV
             Metri1 = m / pr2;
             Metri2 = Metri1 / pr3;
             Metri3 = Metri2 / pr4;
+            Metri4 = default;
         }
 
         /// <summary> +++++++++++++++
@@ -540,5 +572,12 @@ namespace KFV
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            return $"{Dia};{Sten};{Diam};{Stenk};{Pas};{V1};{V2};{V3};{V4};{V5};{V6};{SelectedString2};{SelectedString};{SelectedString1};" +
+                   $"{SelectedString3};{SelectedString4};{Metri1};{Metri2};{Metri3};{Metri4};";
+        }
+
     }
 }

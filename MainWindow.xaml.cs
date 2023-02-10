@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -19,9 +20,11 @@ namespace KFV
 
         static string title = "Вид труб;Прокат в метрах;Размер з.;Размер г.;" +
                               "Проходимость для производства;Метро проходов;Маршрут;Стан ХПТ готовый;Норма;Кол-во смен;ХПТ 1 предфинал;" +
-                              "Метры 1 предфина;ХПТ 2 предфинал;Метры 2 предфина;ХПТ 3 предфинал;Метры 3 предфина;";
+                              "Метры 1 предфина;ХПТ 2 предфинал;Метры 2 предфина;ХПТ 3 предфинал;Метры 3 предфина;ХПТ 4 предфинал;Метры 4 предфина;";
 
         static string foglio = "qwa.xls";
+
+        string path = "2.txt";
 
         #region avgNormaGot
         decimal got32 = 0;
@@ -180,6 +183,7 @@ namespace KFV
         {
             try
             {
+                WriteBase();
                 Excel.Application app = new Excel.Application();
                 Workbook workbook = app.Workbooks.Add(System.Reflection.Missing.Value);
                 Worksheet worksheet = (Worksheet)workbook.Worksheets.get_Item(1);
@@ -359,7 +363,7 @@ namespace KFV
         void ProkatSum1(ObservableCollection<Prop> prop, Worksheet worksheet, int i)
         {
             MainView mv = new MainView();
-            zagot55 = mv.Prokat1(prop,worksheet, i, "ХПТ 55");
+            zagot55 = mv.Prokat1(prop, worksheet, i, "ХПТ 55");
             zagot75 = mv.Prokat1(prop, worksheet, i, "ХПТ 75");
             zagot90 = mv.Prokat1(prop, worksheet, i, "ХПТ 90");
 
@@ -415,12 +419,14 @@ namespace KFV
                 worksheet.Cells[i, 8] = p.SelectedString1;
                 worksheet.Cells[i, 9] = p.SelectedString2;
                 worksheet.Cells[i, 10] = p.V6;
-                worksheet.Cells[i, 11] = p.SelectedString3;
-                worksheet.Cells[i, 12] = p.Metri3;
-                worksheet.Cells[i, 13] = p.SelectedString4;
-                worksheet.Cells[i, 14] = p.Metri2;
-                worksheet.Cells[i, 15] = p.SelectedString5;
-                worksheet.Cells[i, 16] = p.Metri1;
+                worksheet.Cells[i, 11] = p.SelectedString6;
+                worksheet.Cells[i, 12] = p.Metri4;
+                worksheet.Cells[i, 13] = p.SelectedString3;
+                worksheet.Cells[i, 14] = p.Metri3;
+                worksheet.Cells[i, 15] = p.SelectedString4;
+                worksheet.Cells[i, 16] = p.Metri2;
+                worksheet.Cells[i, 17] = p.SelectedString5;
+                worksheet.Cells[i, 18] = p.Metri1;
                 i++;
                 n = i;
             }
@@ -433,7 +439,7 @@ namespace KFV
         void Fg(Worksheet worksheet)
         {
             string[] b = title.Split(';');
-            for (int i = 1; i <= 16; i++)
+            for (int i = 1; i <= 18; i++)
             {
                 worksheet.Cells[1, i] = b[i - 1];
                 worksheet.Cells[1, i].Font.Bold = true;
@@ -449,7 +455,7 @@ namespace KFV
         {
             try
             {
-                string[] b = five.Text.Split(' ');
+                string[] b = five.Text.Split(' '); ///102(0) 65(1) 45(2) 21(3)
                 string[] n = six.Text.Split(' ');
 
                 float m = (float)Convert.ToDouble(seven.Text);
@@ -535,7 +541,7 @@ namespace KFV
             {
                 MessageBox.Show("Ошибка данных");
             }
-            
+
             five.Clear();
             six.Clear();
             seven.Clear();
@@ -682,6 +688,95 @@ namespace KFV
             }
 
             MessageBox.Show($"{avg5}");
+        }
+
+        void WriteBase()
+        {
+            using (StreamWriter sw = new StreamWriter(path, false, System.Text.Encoding.UTF8))
+            {
+                int i = 0;
+                foreach (var p in prop)
+                {
+                    sw.WriteLine(prop[i].ToString());
+                    i++;
+                }
+            }
+        }
+
+        void AddBase(ObservableCollection<Prop> prop)
+        {
+            string[] b = File.ReadAllLines(path);
+
+            foreach (var a in b)
+            {
+                string[] s = a.Split(';');
+                string[] i = s[7].Split('|');
+                switch (i.Length)
+                {
+                    case 2:
+                        prop.Add(new Prop(Massiv(s, 0), Massiv(s, 1), Massiv(s, 2), Massiv(s, 3), Massiv(s, 6)));
+                        break;
+                    case 3:
+                        string[] v = s[7].Split('|');
+                        string[] t1 = v[0].Split('x');
+                        string[] t2 = v[1].Split('x');
+                        string[] t3 = v[2].Split('x');
+                        prop.Add(new Prop(Massiv(t1, 0), Massiv(t1, 1), Massiv(t3, 0), Massiv(t3, 1), Massiv(t2, 0), Massiv(t2, 1), Massiv(s, 6)));
+                        break;
+                    default:
+                        break;
+                }
+
+                //if (s[7].Split('|').Length == 2)
+                //{
+                //    prop.Add(new Prop((float)Convert.ToDouble(s[0]), (float)Convert.ToDouble(s[1]), (float)Convert.ToDouble(s[2]), (float)Convert.ToDouble(s[3]), (float)Convert.ToDouble(s[6])));
+                //}
+
+                //if (s[7].Split('|').Length == 3)
+                //{
+                //    string[] v = s[7].Split('|');
+                //    string[] t1 = v[0].Split('x');
+                //    string[] t2 = v[1].Split('x');
+                //    string[] t3 = v[2].Split('x');
+                //    prop.Add(new Prop(Massiv(t1, 0), Massiv(t1, 1), Massiv(t3, 0), Massiv(t3, 1), Massiv(t2, 0), Massiv(t2, 1), Massiv(s, 6)));
+                //}
+                //if (s[7].Split('|').Length == 4)
+                //{
+                //    string[] v = s[7].Split('|');
+                //    string[] t1 = v[0].Split('x');
+                //    string[] t2 = v[1].Split('x');
+                //    string[] t3 = v[2].Split('x');
+                //    string[] t4 = v[3].Split('x');
+                //    prop.Add(new Prop(Massiv(s, 0), Massiv(s, 1), Massiv(s, 2), Massiv(s, 3), Massiv(t2, 0), Massiv(t2, 1), Massiv(t3, 0), Massiv(t3, 1), Massiv(s, 6)));
+                //}
+                //if (s[7].Split('|').Length == 5)
+                //{
+                //    string[] v = s[7].Split('|');
+                //    string[] t1 = v[0].Split('x');
+                //    string[] t2 = v[1].Split('x');
+                //    string[] t3 = v[2].Split('x');
+                //    string[] t4 = v[3].Split('x');
+                //    string[] t5 = v[3].Split('x');
+                //    prop.Add(new Prop(Massiv(s, 0), Massiv(s, 1), Massiv(s, 2), Massiv(s, 3), Massiv(t2, 0), Massiv(t2, 1), Massiv(t3, 0), Massiv(t3, 1), Massiv(t4, 0), Massiv(t4, 1), Massiv(s, 6)));
+                //}
+                //if (s[7].Split('|').Length == 6)
+                //{
+                //    string[] v = s[7].Split('|');
+                //    string[] t1 = v[0].Split('x');
+                //    string[] t2 = v[1].Split('x');
+                //    string[] t3 = v[2].Split('x');
+                //    string[] t4 = v[3].Split('x');
+                //    string[] t5 = v[4].Split('x');
+                //    string[] t6 = v[5].Split('x');
+                //    prop.Add(new Prop(Massiv(s, 0), Massiv(s, 1), Massiv(s, 2), Massiv(s, 3), Massiv(t2, 0), Massiv(t2, 1), Massiv(t3, 0), Massiv(t3, 1), Massiv(t4, 0), Massiv(t4, 1), Massiv(t5, 0), Massiv(t5, 1), Massiv(s, 6)));
+                //}
+            }
+        }
+
+        float Massiv(string[] s, int i)
+        {
+            float d = (float)Convert.ToDouble(s[i]);
+            return d;
         }
     }
 }
