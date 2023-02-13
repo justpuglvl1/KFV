@@ -335,10 +335,10 @@ namespace KFV
             SelectedString1 = "";
             SelectedString3 = "";
             SelectedString4 = "";
-            Metri1 = m / pr2;
+            Metri4 = m / pr2;
             Metri2 = default;
             Metri3 = default;
-            Metri4 = default;
+            Metri1 = default;
         }
 
         /// <summary> ++++++++++
@@ -386,10 +386,10 @@ namespace KFV
             SelectedString1 = "";
             SelectedString3 = "";
             SelectedString4 = "";
-            Metri1 = m / pr2;
-            Metri2 = Metri1 / pr3;
-            Metri3 = default;
-            Metri4 = default;
+            Metri4 = m / pr2;
+            Metri3 = Metri4 / pr3;
+            Metri1 = default;
+            Metri2 = default;
         }
 
         /// <summary> ++++++++++++++++++++
@@ -445,10 +445,10 @@ namespace KFV
             SelectedString1 = "";
             SelectedString3 = "";
             SelectedString4 = "";
-            Metri1 = m / pr2;
-            Metri2 = Metri1 / pr3;
-            Metri3 = Metri2 / pr4;
-            Metri4 = default;
+            Metri2 = m / pr2;
+            Metri3= Metri2 / pr3;
+            Metri4 = Metri3 / pr4;
+            Metri1 = default;
         }
 
         /// <summary> +++++++++++++++
@@ -506,7 +506,7 @@ namespace KFV
             SelectedString = "";
             SelectedString1 = "";
             SelectedString3 = "";
-            SelectedString4 = "";
+            SelectedString4 = ""; 
             Metri1 = m / pr2;
             Metri2 = Metri1 / pr3;
             Metri3 = Metri2 / pr4;

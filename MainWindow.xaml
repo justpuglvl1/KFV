@@ -70,7 +70,7 @@
                     <DataGridTextColumn Binding="{Binding V2,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="118" Header="Прокат в метрах"/>
                     <DataGridTextColumn Binding="{Binding V4,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" Header="Размер з."/>
                     <DataGridTextColumn Binding="{Binding V5,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" Header="Размер г."/>
-                    <DataGridTextColumn Binding="{Binding Pas,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="170" Header="Проходимость для производства" CellStyle="{StaticResource greenCell}"/>
+                    <DataGridTextColumn Binding="{Binding Pas,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="170" Header="Кф. проходности" CellStyle="{StaticResource greenCell}"/>
                     <DataGridTextColumn Binding="{Binding V1,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="130" Header="Метро проходов"/>
                     <DataGridTextColumn Binding="{Binding V3,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="Маршрут"/>
                     
