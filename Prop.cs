@@ -575,8 +575,9 @@ namespace KFV
 
         public override string ToString()
         {
-            return $"{Dia};{Sten};{Diam};{Stenk};{Pas};{V1};{V2};{V3};{V4};{V5};{V6};{SelectedString2};{SelectedString};{SelectedString1};" +
-                   $"{SelectedString3};{SelectedString4};{Metri1};{Metri2};{Metri3};{Metri4};";
+            return $"{V3};{V2};{SelectedString2};{Metri4};{Metri3};{Metri2};" +
+                   $"{Metri1};{SelectedString};{SelectedString1};{SelectedString3};{SelectedString4};{SelectedString5};" +
+                   $"{SelectedString6};{Pas};{V1}";
         }
 
     }

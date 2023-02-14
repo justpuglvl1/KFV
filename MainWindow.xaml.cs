@@ -213,7 +213,6 @@ namespace KFV
         {
             try
             {
-                WriteBase();
                 Excel.Application app = new Excel.Application();
                 Workbook workbook = app.Workbooks.Add(System.Reflection.Missing.Value);
                 Worksheet worksheet = (Worksheet)workbook.Worksheets.get_Item(1);
@@ -391,21 +390,6 @@ namespace KFV
             }
             catch { }
         }
-
-        ///// <summary>
-        ///// Средня норма заг
-        ///// </summary>
-        ///// <param name="prop"></param>
-        ///// <param name="worksheet"></param>
-        ///// <param name="i"></param>
-        //void AVGNORM1(ObservableCollection<Prop> prop, Worksheet worksheet, int i)
-        //{
-        //    MainView mv = new MainView();
-        //    zanormaGot2 = mv.AvgNORMA1(prop, worksheet, i + 15, "ХПТ 55", 3);
-        //    zanormaGot4 = mv.AvgNORMA1(prop, worksheet, i + 16, "ХПТ 75", 3);
-        //    zanormaGot5 = mv.AvgNORMA1(prop, worksheet, i + 17, "ХПТ 90", 3);
-
-        //}
 
         /// <summary>
         /// Прокат заг
@@ -788,66 +772,118 @@ namespace KFV
             foreach (var a in b)
             {
                 string[] s = a.Split(';');
-                string[] i = s[7].Split('|');
+                string[] i = s[0].Split('|');
                 switch (i.Length)
                 {
                     case 2:
-                        prop.Add(new Prop(Massiv(s, 0), Massiv(s, 1), Massiv(s, 2), Massiv(s, 3), Massiv(s, 6)));
+                        string[] k1 = i[0].Split('x');
+                        string[] k2 = i[1].Split('x');
+                        prop.Add(new Prop((float)Convert.ToDouble(k1[0]), (float)Convert.ToDouble(k1[1]), (float)Convert.ToDouble(k2[0]),
+                                          (float)Convert.ToDouble(k2[1]), (float)Convert.ToDouble(s[1]))
+                        { V2 = s[1], V3 = s[0], SelectedString1 = s[8], SelectedString2 = s[2], Pas = Massiv(s, 13), SelectedString = s[7], V1 = Massiv(s,14) });
+
                         break;
                     case 3:
-                        string[] v = s[7].Split('|');
+                        string[] v = s[0].Split('|');
                         string[] t1 = v[0].Split('x');
                         string[] t2 = v[1].Split('x');
                         string[] t3 = v[2].Split('x');
-                        prop.Add(new Prop(Massiv(t1, 0), Massiv(t1, 1), Massiv(t3, 0), Massiv(t3, 1), Massiv(t2, 0), Massiv(t2, 1), Massiv(s, 6)));
+                        prop.Add(new Prop(Massiv(t1, 0), Massiv(t1, 1), Massiv(t3, 0), Massiv(t3, 1),
+                                          Massiv(t2, 0), Massiv(t2, 1), Massiv(s, 1))
+                        {
+                            V2 = s[1],
+                            V3 = s[0],
+                            Metri4 = Massiv(s, 3),
+                            SelectedString1 = s[8],
+                            SelectedString2 = s[2],
+                            SelectedString6 = s[12],
+                            Pas = Massiv(s, 13),
+                            SelectedString = s[7],
+                            V1 = Massiv(s, 14)
+                        });
+                        break;
+                    case 4:
+                        string[] v1 = s[0].Split('|');
+                        string[] t11 = v1[0].Split('x');
+                        string[] t22 = v1[1].Split('x');
+                        string[] t33 = v1[2].Split('x');
+                        string[] t44 = v1[3].Split('x');
+                        prop.Add(new Prop(Massiv(t11, 0), Massiv(t11, 1), Massiv(t44, 0), Massiv(t44, 1),
+                                          Massiv(t33, 0), Massiv(t33, 1), Massiv(t22, 0), Massiv(t22, 1),
+                                          Massiv(s, 1))
+                        {
+                            V2 = s[1],
+                            V3 = s[0],
+                            Metri4 = Massiv(s, 3),
+                            Metri3 = Massiv(s, 4),
+                            SelectedString1 = s[8],
+                            SelectedString2 = s[2],
+                            SelectedString6 = s[12],
+                            SelectedString3 = s[9],
+                            Pas = Massiv(s, 13),
+                            SelectedString = s[7],
+                            V1 = Massiv(s, 14)
+                        });
+                        break;
+                    case 5:
+                        string[] v11 = s[0].Split('|');
+                        string[] t111 = v11[0].Split('x');
+                        string[] t222 = v11[1].Split('x');
+                        string[] t333 = v11[2].Split('x');
+                        string[] t444 = v11[3].Split('x');
+                        string[] t5 = v11[3].Split('x');
+                        prop.Add(new Prop(Massiv(t111, 0), Massiv(t111, 1), Massiv(t5, 0), Massiv(t5, 1),
+                                          Massiv(t444, 0), Massiv(t444, 1), Massiv(t333, 0), Massiv(t333, 1),
+                                          Massiv(t222, 0), Massiv(t222, 1), Massiv(s, 1))
+                        {
+                            V2 = s[1],
+                            V3 = s[0],
+                            Metri4 = Massiv(s, 3),
+                            Metri3 = Massiv(s, 4),
+                            Metri2 = Massiv(s, 5),
+                            SelectedString1 = s[8],
+                            SelectedString2 = s[2],
+                            SelectedString6 = s[12],
+                            SelectedString3 = s[9],
+                            SelectedString4 = s[10],
+                            Pas = Massiv(s, 13),
+                            SelectedString = s[7],
+                            V1 = Massiv(s, 14)
+                        });
+                        break;
+                    case 6:
+                        string[] v2 = s[0].Split('|');
+                        string[] t12 = v2[0].Split('x');
+                        string[] t23 = v2[1].Split('x');
+                        string[] t34 = v2[2].Split('x');
+                        string[] t45 = v2[3].Split('x');
+                        string[] t55 = v2[4].Split('x');
+                        string[] t6 = v2[5].Split('x');
+                        prop.Add(new Prop(Massiv(t12, 0), Massiv(t12, 1), Massiv(t6, 0), Massiv(t6, 1),
+                                          Massiv(t55, 0), Massiv(t55, 1), Massiv(t45, 0), Massiv(t45, 1),
+                                          Massiv(t34, 0), Massiv(t34, 1), Massiv(t23, 0), Massiv(t23, 1),
+                                          Massiv(s, 1))
+                        {
+                            V2 = s[1],
+                            V3 = s[0],
+                            Metri4 = Massiv(s, 3),
+                            Metri3 = Massiv(s, 4),
+                            Metri2 = Massiv(s, 5),
+                            Metri1 = Massiv(s, 6),
+                            SelectedString1 = s[8],
+                            SelectedString2 = s[2],
+                            SelectedString6 = s[12],
+                            SelectedString3 = s[9],
+                            SelectedString4 = s[10],
+                            SelectedString5 = s[11],
+                            Pas = Massiv(s, 13),
+                            SelectedString = s[7],
+                            V1 = Massiv(s, 14)
+                        });
                         break;
                     default:
                         break;
                 }
-
-                //if (s[7].Split('|').Length == 2)
-                //{
-                //    prop.Add(new Prop((float)Convert.ToDouble(s[0]), (float)Convert.ToDouble(s[1]), (float)Convert.ToDouble(s[2]), (float)Convert.ToDouble(s[3]), (float)Convert.ToDouble(s[6])));
-                //}
-
-                //if (s[7].Split('|').Length == 3)
-                //{
-                //    string[] v = s[7].Split('|');
-                //    string[] t1 = v[0].Split('x');
-                //    string[] t2 = v[1].Split('x');
-                //    string[] t3 = v[2].Split('x');
-                //    prop.Add(new Prop(Massiv(t1, 0), Massiv(t1, 1), Massiv(t3, 0), Massiv(t3, 1), Massiv(t2, 0), Massiv(t2, 1), Massiv(s, 6)));
-                //}
-                //if (s[7].Split('|').Length == 4)
-                //{
-                //    string[] v = s[7].Split('|');
-                //    string[] t1 = v[0].Split('x');
-                //    string[] t2 = v[1].Split('x');
-                //    string[] t3 = v[2].Split('x');
-                //    string[] t4 = v[3].Split('x');
-                //    prop.Add(new Prop(Massiv(s, 0), Massiv(s, 1), Massiv(s, 2), Massiv(s, 3), Massiv(t2, 0), Massiv(t2, 1), Massiv(t3, 0), Massiv(t3, 1), Massiv(s, 6)));
-                //}
-                //if (s[7].Split('|').Length == 5)
-                //{
-                //    string[] v = s[7].Split('|');
-                //    string[] t1 = v[0].Split('x');
-                //    string[] t2 = v[1].Split('x');
-                //    string[] t3 = v[2].Split('x');
-                //    string[] t4 = v[3].Split('x');
-                //    string[] t5 = v[3].Split('x');
-                //    prop.Add(new Prop(Massiv(s, 0), Massiv(s, 1), Massiv(s, 2), Massiv(s, 3), Massiv(t2, 0), Massiv(t2, 1), Massiv(t3, 0), Massiv(t3, 1), Massiv(t4, 0), Massiv(t4, 1), Massiv(s, 6)));
-                //}
-                //if (s[7].Split('|').Length == 6)
-                //{
-                //    string[] v = s[7].Split('|');
-                //    string[] t1 = v[0].Split('x');
-                //    string[] t2 = v[1].Split('x');
-                //    string[] t3 = v[2].Split('x');
-                //    string[] t4 = v[3].Split('x');
-                //    string[] t5 = v[4].Split('x');
-                //    string[] t6 = v[5].Split('x');
-                //    prop.Add(new Prop(Massiv(s, 0), Massiv(s, 1), Massiv(s, 2), Massiv(s, 3), Massiv(t2, 0), Massiv(t2, 1), Massiv(t3, 0), Massiv(t3, 1), Massiv(t4, 0), Massiv(t4, 1), Massiv(t5, 0), Massiv(t5, 1), Massiv(s, 6)));
-                //}
             }
         }
 
@@ -855,6 +891,30 @@ namespace KFV
         {
             float d = (float)Convert.ToDouble(s[i]);
             return d;
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                AddBase(prop);
+            }
+            catch
+            {
+                MessageBox.Show("Нет данных");
+            }
+            dataGrid.Items.Refresh();
+        }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            WriteBase();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            prop.Clear();
+            dataGrid.Items.Refresh();
         }
     }
 }

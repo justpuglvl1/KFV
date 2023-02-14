@@ -24,10 +24,12 @@
                 <Menu Height="20" VerticalAlignment="Top">
                     <MenuItem Header="Файл">
                         <MenuItem Header="Выгрузить в Excel" Click="MenuItem_Click"/>
-                        <MenuItem Header="Открыть файл" Click="MenuItem_Click_1"/>
-                        <MenuItem Header="Редактировать документ" Click="MenuItem_Click_2"/>
+                        <MenuItem Header="Открыть Excel" Click="MenuItem_Click_1"/>
+                        <MenuItem Header="Прошлая сессия" Click="MenuItem_Click_3" />
+                        <MenuItem Header="Сохранить" Click="MenuItem_Click_4" />
                     </MenuItem>
                 </Menu>
+                <Button Margin="45 1 0 0" HorizontalAlignment="Left" Width="75" Click="Button_Click_1">Очистить</Button>
             </Grid>
             <DataGrid Grid.Row="2" Grid.Column="2" x:Name="dataGrid"  AutoGenerateColumns="False" Margin="5,0,5,55" RowHeight="23" FontSize="15" CanUserDeleteRows="True">
                 <DataGrid.Resources>
@@ -57,7 +59,7 @@
                 </DataGrid.Resources>
 
                 <DataGrid.Columns>
-                    
+
                     <DataGridTemplateColumn Header="Вид труб">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -66,14 +68,14 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    
+
                     <DataGridTextColumn Binding="{Binding V2,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="118" Header="Прокат в метрах"/>
                     <DataGridTextColumn Binding="{Binding V4,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" Header="Размер з."/>
                     <DataGridTextColumn Binding="{Binding V5,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" Header="Размер г."/>
                     <DataGridTextColumn Binding="{Binding Pas,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="170" Header="Кф. проходности" CellStyle="{StaticResource greenCell}"/>
                     <DataGridTextColumn Binding="{Binding V1,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="130" Header="Метро проходов"/>
                     <DataGridTextColumn Binding="{Binding V3,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="Маршрут"/>
-                    
+
                     <DataGridTemplateColumn Header="Стан ХПТ готовый">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -83,7 +85,7 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn Header="Норма" Width="80">
+                    <DataGridTemplateColumn Header="Норма" Width="100">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <ComboBox FontSize="13" ItemsSource="{Binding TestList2}" SelectedItem="{Binding Path=SelectedString2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
@@ -91,9 +93,9 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    
-                    <DataGridTextColumn Binding="{Binding V6,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="95" Header="Кол-во смен"/>
-                    
+
+                    <!--<DataGridTextColumn Binding="{Binding V6,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="95" Header="Кол-во смен"/>-->
+
                     <DataGridTemplateColumn Header="1 передел" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -104,7 +106,7 @@
                     </DataGridTemplateColumn>
 
                     <DataGridTextColumn Binding="{Binding Metri4,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*" Header="М. 1 передел"/>
-                    
+
                     <DataGridTemplateColumn Header="2 передел" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
