@@ -123,23 +123,30 @@ namespace KFV
 
         public decimal Avg(ObservableCollection<Prop> prop, Worksheet worksheet, int i, int a)
         {
-            var avg55 = from xp in prop
-                        select Convert.ToDecimal(xp.V2) / Convert.ToDecimal(xp.SelectedString2);
-
-            decimal avg5 = 0;
-
-            foreach(var p in avg55)
+            try
             {
-                avg5 += Convert.ToDecimal(p);
-            }
+                var avg55 = from xp in prop
+                            select Convert.ToDecimal(xp.V2) / Convert.ToDecimal(xp.SelectedString2);
 
-            for(int h = 0; h< prop.Count; h++)
+                decimal avg5 = 0;
+
+                foreach (var p in avg55)
+                {
+                    avg5 += Convert.ToDecimal(p);
+                }
+
+                for (int h = 0; h < prop.Count; h++)
+                {
+                    worksheet.Cells[h + 2, 10] = Convert.ToDecimal(prop[h].V2) / Convert.ToDecimal(prop[h].SelectedString2);
+                    worksheet.Cells[h + 2, 10].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
+                }
+
+                return avg5;
+            }
+            catch
             {
-                worksheet.Cells[h+2, 10] = Convert.ToDecimal(prop[h].V2) / Convert.ToDecimal(prop[h].SelectedString2);
-                worksheet.Cells[h+2, 10].Cells.Borders.LineStyle = XlLineStyle.xlContinuous;
+                return 0;
             }
-
-            return avg5;
         }
 
         public decimal Afg1(ObservableCollection<Prop> prop)

@@ -281,9 +281,9 @@ namespace KFV
                 Marshal.ReleaseComObject(workbook);
                 Marshal.ReleaseComObject(app);
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Не выбрана дата или закройте документ");
+                MessageBox.Show("Не выбрана дата или закройте документ" + ex.Message);
             }
         }
 
@@ -914,6 +914,21 @@ namespace KFV
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             prop.Clear();
+            dataGrid.Items.Refresh();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            prop.Clear();
+            dataGrid.Items.Refresh();
+            try
+            {
+                AddBase(prop);
+            }
+            catch
+            {
+                MessageBox.Show("Нет данных");
+            }
             dataGrid.Items.Refresh();
         }
     }

@@ -30,6 +30,7 @@
                     </MenuItem>
                 </Menu>
                 <Button Margin="45 1 0 0" HorizontalAlignment="Left" Width="75" Click="Button_Click_1">Очистить</Button>
+                <Button Margin="120 1 0 0" HorizontalAlignment="Left" Width="75" Click="Button_Click_2">Обновить</Button>
             </Grid>
             <DataGrid Grid.Row="2" Grid.Column="2" x:Name="dataGrid"  AutoGenerateColumns="False" Margin="5,0,5,55" RowHeight="23" FontSize="15" CanUserDeleteRows="True">
                 <DataGrid.Resources>
